@@ -9,7 +9,7 @@ const Contact: React.FC = () => {
         e.preventDefault();
 
         // Create a mailto link
-        const mailtoLink = `mailto:wanyoike39@gmail.comsubject=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}`;
+        const mailtoLink = `mailto:wanyoike39@gmail.com?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}`;
         
         // Open the mailto link in a new tab (which will trigger the email client)
         window.location.href = mailtoLink;
