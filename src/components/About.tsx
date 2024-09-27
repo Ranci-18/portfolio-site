@@ -14,8 +14,7 @@ const About: React.FC = () => {
                 creation company, while also collaborating
                 with international clients. However, 
                 after reaching my peak as a writer, 
-                I transitioned into IT and tech two 
-                years ago.
+                I transitioned into IT.
             </p>
             
             <p>I joined an intense, 
