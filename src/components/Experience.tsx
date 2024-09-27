@@ -4,7 +4,7 @@ import ExperienceHelper from "./ExperienceHelper";
 const Experience: React.FC = () => {
     return (
         <div className="experience">
-            <h3>EXPERIENCE</h3>
+            <h3 className="h3">EXPERIENCE</h3>
             <ExperienceHelper 
                 yearFrom="2024"
                 yearTo="present"

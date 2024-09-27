@@ -3,7 +3,7 @@ import React from "react";
 const About: React.FC = () => {
     return (
         <div className="about">
-            <h3>ABOUT ME</h3>
+            <h3 className="h3">ABOUT ME</h3>
             <p>I have always been passionate about 
                 math and the sciences, which led me 
                 to pursue a degree in Electrical 

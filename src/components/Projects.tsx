@@ -10,7 +10,7 @@ import ProjectsHelper from "./ProjectsHelper";
 const Projects: React.FC = () => {
     return (
         <div className="projects">
-            <h3>PROJECTS</h3>
+            <h3 className="h3">PROJECTS</h3>
             <ProjectsHelper 
                 title="Ranci-chess App" 
                 img={chess}

@@ -6,21 +6,16 @@ import Experience from './Experience';
 import Projects from './Projects';
 import Blog from './Blog';
 import Footer from './Footer';
+import Contact from './Contact';
 
 const App: React.FC = () => {
     useEffect(() => {
-        const addElementWhenNeeded = () => {
-            const parentContainer = document.querySelector('.welcome');
-            if (parentContainer) {
-                if (window.innerWidth >= 768) {
-                    const sections = ['About', 'Experience', 'Projects', 'Blog'];
-                    sections.forEach(section => {
-                        const newElement = document.createElement('div');
-                        newElement.textContent = section;
-                        newElement.classList.add('highlight-element');
-                        parentContainer.appendChild(newElement);
-                    });
-                }
+        const removeH3ElementForLargeScreens = () => {
+            const h3Elements = document.querySelectorAll('.h3');
+            if (window.matchMedia('(min-width: 768px').matches) {
+                h3Elements.forEach(element => {
+                    element.remove();
+                });
             }
         }
 
@@ -36,9 +31,9 @@ const App: React.FC = () => {
                 const section = document.querySelector(`.${sectionClass}`);
                 if (section) {
                     const sectionTop = section.getBoundingClientRect().top;
-                    
+                    const sectionBottom = section.getBoundingClientRect().bottom;
 
-                    if (sectionTop >= 0 && sectionTop < halfwayPoint) {
+                    if (sectionTop < halfwayPoint && sectionBottom > 0) {
                         currentSection = sectionClass;
                     }
                 }
@@ -51,17 +46,17 @@ const App: React.FC = () => {
         }
 
         // initial setup
-        addElementWhenNeeded();
+        removeH3ElementForLargeScreens();
         handleScroll();
 
         // scroll and resize event listeners
         window.addEventListener('scroll', handleScroll);
-        window.addEventListener('resize', addElementWhenNeeded);
+        window.addEventListener('resize', removeH3ElementForLargeScreens);
 
         // cleanup
         return () => {
             window.removeEventListener('scroll', handleScroll);
-            window.removeEventListener('resize', addElementWhenNeeded);
+            window.removeEventListener('resize', removeH3ElementForLargeScreens);
         };
     }, [])
 
@@ -76,6 +71,7 @@ const App: React.FC = () => {
                 <Projects />
                 <Blog  />
                 <Footer />
+                <Contact />
             </div>
             
         </div>

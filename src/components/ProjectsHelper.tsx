@@ -1,4 +1,5 @@
-import React from "react";
+import React from 'react';
+import '../sass/projectsHelper.sass';
 
 interface ProjectsHelperProps {
     title: string;
@@ -11,7 +12,7 @@ const ProjectsHelper: React.FC<ProjectsHelperProps> = ({ title, img, anchor, tec
     return (
         <div className="project">
             <h3>{title}</h3>
-            <a href={anchor}><img src={img} alt={title} width={200} height={150} /></a>
+            <a href={anchor}><img src={img} alt={title} /></a>
             <div className="techStack">
                 {
                     techStack.map((tech, idx) => (
