@@ -5,32 +5,18 @@ const Contact: React.FC = () => {
     const [body, setBody] = useState('');
     const [subject, setSubject] = useState('');
 
-    const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
+    const handleSubmit = (e: React.FormEvent<HTMLFormElement>) => {
         e.preventDefault();
 
-        try {
-            const response = await fetch('/api/send-whatsapp', {
-                method: 'POST',
-                headers: {
-                    'Content-Type': 'application/json',
-                },
-                body: JSON.stringify({ subject, body }),
-            });
-    
-            const data = await response.json();
-    
-            if (data.success) {
-                alert('Email sent successfully');
-                setBody('');
-                setSubject('');
-            } else {
-                alert('Message not sent');
-            }
-        } catch (error) {
-            console.error('Email not sent:', error);
-            alert('Message not sent!');
-        }
+        // Create a mailto link
+        const mailtoLink = `mailto:wanyoike39@gmail.comsubject=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}`;
         
+        // Open the mailto link in a new tab (which will trigger the email client)
+        window.location.href = mailtoLink;
+
+        // Clear the form after sending
+        setBody('');
+        setSubject('');
     };
 
     return (
